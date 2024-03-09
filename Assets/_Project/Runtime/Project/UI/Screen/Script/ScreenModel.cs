@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -5,6 +6,12 @@ using UnityEngine;
 
 public class ScreenModel : SingletonBehaviour<ScreenModel>
 {
+    [Serializable]
+    public class ScreenLayer
+    {
+        public string Key;
+        public Transform Layer;
+    }
     public List<ScreenLayer> screenLayers;
 
     public async Task<GameObject> OpenScreen(string screenKey,string layerKey,bool clearLayer = true)
