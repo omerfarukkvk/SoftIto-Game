@@ -134,7 +134,7 @@ GameObject:
   - component: {fileID: 145127158}
   - component: {fileID: 145127157}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: Root
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -633,6 +633,6 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 330585546}
+  - {fileID: 145127158}
   - {fileID: 1986324464}
   - {fileID: 2009457463}
-  - {fileID: 145127158}
