@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using UnityEngine;
 
 public class MenuScreenView : MonoBehaviour
@@ -8,20 +9,12 @@ public class MenuScreenView : MonoBehaviour
     {
         Application.Quit();
     }
-    public void OnClickSettingsScreen()
+    public async void OnClickSettingsScreen()
     {
-        
+        await ScreenModel.Instance.OpenScreen(ScreenKeys.SettingsScreen, ScreenLayers.Layer1);
     }
-    public void OnClickGameScreen()
+    public async void OnClickGameScreen()
     {
-        
-    }
-    public void OnClickMenuScreen()
-    {
-        OpenMenuScreen();
-    }
-    private async void OpenMenuScreen()
-    {
-        await ScreenModel.Instance.OpenScreen(ScreenKeys.MenuScreen, ScreenLayers.Layer1);
+        await ScreenModel.Instance.OpenScreen(ScreenKeys.GameScreen, ScreenLayers.Layer1);
     }
 }
