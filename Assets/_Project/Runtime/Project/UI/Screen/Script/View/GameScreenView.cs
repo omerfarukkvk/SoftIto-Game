@@ -5,9 +5,9 @@ using DG.Tweening; //Do tween implement
 
 public class GameScreenView : MonoBehaviour
 {
-    public void OnClickPauseButton()
+    public async void OnClickPauseButton()
     {
-        
+        await ScreenModel.Instance.OpenScreen(ScreenKeys.PauseScreen, ScreenLayers.Layer2);
     }
     public async void OnClickBackButton()
     {

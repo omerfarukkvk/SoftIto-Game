@@ -42,7 +42,7 @@ public class ScreenModel : SingletonBehaviour<ScreenModel>
         
         return loadPrefab;
     }
-    void ClearLayer(string layerKey)
+    public void ClearLayer(string layerKey)
     {
         foreach (var screenLayer in screenLayers)
         {
