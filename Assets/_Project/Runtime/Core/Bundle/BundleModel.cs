@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -38,5 +39,4 @@ public class BundleModel : SingletonModel<BundleModel>
         await asyncOperationHandle.Task;
         _sceneMap.Remove(sceneKey);
     }
-
 }
