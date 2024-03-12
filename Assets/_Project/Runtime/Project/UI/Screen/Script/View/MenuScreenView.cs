@@ -11,7 +11,7 @@ public class MenuScreenView : MonoBehaviour
     }
     public async void OnClickSettingsScreen()
     {
-        await ScreenModel.Instance.OpenScreen(ScreenKeys.SettingsScreen, ScreenLayers.Layer3);
+        await ScreenModel.Instance.OpenScreen(ScreenKeys.SettingsScreen, ScreenLayers.Layer2);
     }
     public async void OnClickGameScreen()
     {

@@ -6,6 +6,6 @@ public class SettingsScreenView : MonoBehaviour
 {
     public void OnClickBack()
     {
-        ScreenModel.Instance.ClearLayer(ScreenLayers.Layer3);
+        ScreenModel.Instance.ClearLayer(ScreenLayers.Layer2);
     }
 }
