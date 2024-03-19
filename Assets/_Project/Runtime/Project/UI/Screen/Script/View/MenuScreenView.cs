@@ -1,20 +1,20 @@
-using System.Collections;
-using System.Collections.Generic;
-using System.Threading.Tasks;
 using UnityEngine;
 
-public class MenuScreenView : MonoBehaviour
+namespace _Project.Runtime.Project.UI.Screen.Script.View
 {
-    public void OnClickExit()
+    public class MenuScreenView : MonoBehaviour
     {
-        Application.Quit();
-    }
-    public async void OnClickSettingsScreen()
-    {
-        await ScreenModel.Instance.OpenScreen(ScreenKeys.SettingsScreen, ScreenLayers.Layer2);
-    }
-    public async void OnClickGameScreen()
-    {
-        await ScreenModel.Instance.OpenScreen(ScreenKeys.GameScreen, ScreenLayers.Layer1);
+        public void OnClickExit()
+        {
+            Application.Quit();
+        }
+        public async void OnClickSettingsScreen()
+        {
+            await ScreenModel.Instance.OpenScreen(ScreenKeys.SettingsScreen, ScreenLayers.Layer2);
+        }
+        public async void OnClickGameScreen()
+        {
+            await ScreenModel.Instance.OpenScreen(ScreenKeys.LevelScreen, ScreenLayers.Layer1);
+        }
     }
 }

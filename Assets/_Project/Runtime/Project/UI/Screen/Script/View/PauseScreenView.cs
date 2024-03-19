@@ -5,9 +5,9 @@ using UnityEngine.SceneManagement;
 
 public class PauseScreenView : MonoBehaviour
 {
-    public void OnClickResumeButton()
+    public async void OnClickResumeButton()
     {
-        ScreenModel.Instance.ClearLayer(ScreenLayers.Layer1);
+        await ScreenModel.Instance.OpenScreen(ScreenKeys.GameScreen, ScreenLayers.Layer1);
     }
     
     public async void OnClickSettingsButton()

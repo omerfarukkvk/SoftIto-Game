@@ -7,11 +7,11 @@ public class LaunchLevel : MonoBehaviour
 {
     private void Awake()
     {
-        BundleModel.Instance = new BundleModel();
+        OpenGameScreen();
     }
 
-    public async void OnClickPauseButton()
+    public async void OpenGameScreen()
     {
-        await ScreenModel.Instance.OpenScreen(ScreenKeys.PauseScreen, ScreenLayers.Layer1);
+        await ScreenModel.Instance.OpenScreen(ScreenKeys.GameScreen, ScreenLayers.Layer1);
     }
 }
