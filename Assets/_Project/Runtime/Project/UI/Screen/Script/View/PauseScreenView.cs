@@ -8,6 +8,7 @@ public class PauseScreenView : MonoBehaviour
     public async void OnClickResumeButton()
     {
         await ScreenModel.Instance.OpenScreen(ScreenKeys.GameScreen, ScreenLayers.Layer1);
+        Time.timeScale = 1f;
     }
     
     public async void OnClickSettingsButton()
