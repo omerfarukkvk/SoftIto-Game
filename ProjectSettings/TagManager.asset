@@ -6,6 +6,7 @@ TagManager:
   tags:
   - RedArea
   - GreenArea
+  - Vehicle
   layers:
   - Default
   - TransparentFX

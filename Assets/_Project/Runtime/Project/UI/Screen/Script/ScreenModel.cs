@@ -14,6 +14,10 @@ public class ScreenModel : SingletonBehaviour<ScreenModel>
     }
     public List<ScreenLayer> screenLayers;
 
+    void Awake()
+    {
+        DontDestroyOnLoad(gameObject);
+    }
     public async Task<GameObject> OpenScreen(string screenKey,string layerKey,bool clearLayer = true)
     {
         Transform layer = null;
