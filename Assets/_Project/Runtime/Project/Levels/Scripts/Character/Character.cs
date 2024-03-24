@@ -39,6 +39,10 @@ public class Character : MonoBehaviour
         CheckScore();
         CheckVehicle();
         CharacterMovement();
+        // if (Input.GetKeyDown(KeyCode.Space))
+        // {
+        //     GameModel.Instance.Score += 10;
+        // }
     }
 
     private void CharacterMovement()
@@ -66,14 +70,14 @@ public class Character : MonoBehaviour
                     CurrentVehicle = Vehicles.Human;
                 }
                 break;
-            case 20:
+            case 100:
                 if (!VehicleIsRenderable && CurrentVehicle != Vehicles.Bicycle)
                 {
                     GetVehiclePrefab(VehicleKeys.Bicycle);
                     CurrentVehicle = Vehicles.Bicycle;
                 }
                 break;
-            case 100:
+            case 200:
                 if (!VehicleIsRenderable && CurrentVehicle != Vehicles.Peugeout308)
                 {
                     GetVehiclePrefab(VehicleKeys.Peugeout308);
@@ -112,6 +116,8 @@ public class Character : MonoBehaviour
         }
         var oldRendererObject = GameObject.FindGameObjectWithTag("Vehicle");
         if (oldRendererObject != null && CurrentVehicle != Vehicles.Human)
+        {
             Destroy(oldRendererObject);
+        }
     }
 }
