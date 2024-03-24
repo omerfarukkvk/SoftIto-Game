@@ -141,6 +141,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MovementSlider: {fileID: 1970736171692954442}
+  ScoreSlider: {fileID: 8801609721890362751}
 --- !u!1 &3397474131524690695
 GameObject:
   m_ObjectHideFlags: 0

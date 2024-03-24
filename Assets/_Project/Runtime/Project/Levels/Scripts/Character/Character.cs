@@ -23,6 +23,7 @@ public class Character : MonoBehaviour
     [SerializeField] private Vehicles CurrentVehicle;
     [SerializeField] private int Score;
     [SerializeField] private int Speed;
+    [SerializeField] private Slider slider;
     private bool VehicleIsRenderable;
     private float MovementForce;
 
@@ -38,12 +39,6 @@ public class Character : MonoBehaviour
         CheckScore();
         CheckVehicle();
         CharacterMovement();
-
-        
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            GameModel.Instance.Score += 10;
-        }
     }
 
     private void CharacterMovement()
