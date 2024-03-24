@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Codice.Client.BaseCommands.BranchExplorer;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -8,34 +9,35 @@ public class Character : MonoBehaviour
 {
     public enum Vehicles
     {
+        Empty,
         Human,
         Horse,
         Bicycle,
-        NinetiesCar,
+        OldCar,
         Chopper,
         Tank,
+        Plane,
         Peugeout308
     }
 
-    private Vehicles CurrentVehicle;
-    private int Score;
+    [SerializeField] private Vehicles CurrentVehicle;
+    [SerializeField] private int Score;
     [SerializeField] private int Speed;
     private bool VehicleIsRenderable;
     private float MovementForce;
-    private GameObject GameScreen;
 
     void Awake()
     {
-        CurrentVehicle = Vehicles.Human;
+        GameModel.Instance.Score = 0;
+        Time.timeScale = 1f;
     }
-
     private void Update()
     {
         MovementForce = GameModel.Instance.MovementForce;
         Score = GameModel.Instance.Score;
+        CheckScore();
         CheckVehicle();
         CharacterMovement();
-        CheckScore();
 
         
         if (Input.GetKeyDown(KeyCode.Space))
@@ -62,15 +64,22 @@ public class Character : MonoBehaviour
     {
         switch(Score)
         {
-            case 10:
-                if (VehicleIsRenderable == false)
+            case 0:
+                if (!VehicleIsRenderable && CurrentVehicle != Vehicles.Human)
+                {
+                    GetVehiclePrefab(VehicleKeys.Human);
+                    CurrentVehicle = Vehicles.Human;
+                }
+                break;
+            case 20:
+                if (!VehicleIsRenderable && CurrentVehicle != Vehicles.Bicycle)
                 {
                     GetVehiclePrefab(VehicleKeys.Bicycle);
                     CurrentVehicle = Vehicles.Bicycle;
                 }
                 break;
             case 100:
-                if (VehicleIsRenderable == false)
+                if (!VehicleIsRenderable && CurrentVehicle != Vehicles.Peugeout308)
                 {
                     GetVehiclePrefab(VehicleKeys.Peugeout308);
                     CurrentVehicle = Vehicles.Peugeout308;
@@ -100,13 +109,14 @@ public class Character : MonoBehaviour
 
     private async void GetVehiclePrefab(string vehicleName)
     {
-        var oldRendererObject = GameObject.FindGameObjectWithTag("Vehicle");
-        Destroy(oldRendererObject);
         VehicleIsRenderable = true;
         if (VehicleIsRenderable)
         {
             var bundle = await BundleModel.Instance.LoadPrefab(vehicleName, gameObject.transform);
             VehicleIsRenderable = false;
         }
+        var oldRendererObject = GameObject.FindGameObjectWithTag("Vehicle");
+        if (oldRendererObject != null && CurrentVehicle != Vehicles.Human)
+            Destroy(oldRendererObject);
     }
 }
