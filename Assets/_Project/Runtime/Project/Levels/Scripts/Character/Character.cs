@@ -31,12 +31,10 @@ public class Character : MonoBehaviour
     private float MovementForce;
     public TextMeshProUGUI text;
     bool isTap = true;
-    private Sequence _sequence;
 
 
     void Awake()
     {
-        _sequence = DOTween.Sequence();
         GameModel.Instance.Score = 0;
         Time.timeScale = 1f;
     }
@@ -56,9 +54,9 @@ public class Character : MonoBehaviour
         }
         else
         {
-            CharacterMovement();
             CheckScore();
             CheckVehicle();
+            CharacterMovement();
         }
         // if (Input.GetKeyDown(KeyCode.Space))
         // {
