@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 755038732674266090}
+  - component: {fileID: 3926230409430885625}
   m_Layer: 0
   m_Name: Chopper
   m_TagString: Untagged
@@ -32,6 +33,27 @@ Transform:
   - {fileID: 2583766375037486315}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &3926230409430885625
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5739106819480986220}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.6248305, y: 1.0874376, z: 2.7302823}
+  m_Center: {x: 0.02586186, y: 0.7509053, z: -0.062158585}
 --- !u!1001 &2617111080316969728
 PrefabInstance:
   m_ObjectHideFlags: 0

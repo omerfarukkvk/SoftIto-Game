@@ -4,9 +4,9 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - RedArea
-  - GreenArea
   - Vehicle
+  - Area
+  - Wall
   layers:
   - Default
   - TransparentFX

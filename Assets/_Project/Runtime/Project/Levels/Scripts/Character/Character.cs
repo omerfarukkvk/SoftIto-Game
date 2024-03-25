@@ -30,6 +30,8 @@ public class Character : MonoBehaviour
     private bool VehicleIsRenderable;
     private float MovementForce;
     public TextMeshProUGUI text;
+
+
     bool isTap = true;
 
 
@@ -44,6 +46,10 @@ public class Character : MonoBehaviour
         MovementForce = GameModel.Instance.MovementForce;
         Score = GameModel.Instance.Score;
 
+        if (Score < 0)
+        {
+            GameModel.Instance.Score = 0;
+        }
         if (isTap)
         {
             if (Input.anyKey)
@@ -76,6 +82,20 @@ public class Character : MonoBehaviour
         }
 
         transform.Translate(Vector3.forward * Speed * Time.deltaTime);
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Area"))
+        {
+            var pointLabel = other.GetComponentInChildren<Canvas>().GetComponentInChildren<TMP_Text>();
+            GameModel.Instance.Score += int.Parse(pointLabel.text);
+        }
+
+        if (other.CompareTag("Wall"))
+        {
+            Time.timeScale = 0f;
+        }
     }
 
     public void CheckScore()
@@ -133,6 +153,7 @@ public class Character : MonoBehaviour
         VehicleIsRenderable = true;
         if (VehicleIsRenderable)
         {
+            
             var bundle = await BundleModel.Instance.LoadPrefab(vehicleName, gameObject.transform);
             VehicleIsRenderable = false;
         }

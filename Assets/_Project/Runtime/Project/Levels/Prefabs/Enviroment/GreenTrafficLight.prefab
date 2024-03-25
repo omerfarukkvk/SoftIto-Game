@@ -31,7 +31,6 @@ Transform:
   m_Children:
   - {fileID: 6736823332283474715}
   - {fileID: 3592723659911947153}
-  - {fileID: 2633573205284525099}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2672840753745378307
@@ -195,16 +194,16 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3831557843063666194}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -0.26}
+  m_LocalScale: {x: 0.40816325, y: 0.83333325, z: 10}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8342920869855283071}
-  m_Father: {fileID: 1984460240751645353}
+  m_Father: {fileID: 3592723659911947153}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0.8}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 2, y: 1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &2949512954810613262
@@ -284,7 +283,7 @@ GameObject:
   - component: {fileID: 3491414427949788093}
   m_Layer: 0
   m_Name: GreenArea
-  m_TagString: GreenArea
+  m_TagString: Area
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -301,7 +300,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0.8, z: 0.026}
   m_LocalScale: {x: 2.45, y: 1.2, z: 0.1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 2633573205284525099}
   m_Father: {fileID: 1984460240751645353}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &7707652637696518932
