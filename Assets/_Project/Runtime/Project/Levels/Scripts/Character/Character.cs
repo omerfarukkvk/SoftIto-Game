@@ -2,8 +2,11 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using Codice.Client.BaseCommands.BranchExplorer;
+using DG.Tweening;
+using JetBrains.Annotations;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class Character : MonoBehaviour
 {
@@ -26,19 +29,37 @@ public class Character : MonoBehaviour
     [SerializeField] private Slider slider;
     private bool VehicleIsRenderable;
     private float MovementForce;
+    public TextMeshProUGUI text;
+    bool isTap = true;
+    private Sequence _sequence;
+
 
     void Awake()
     {
+        _sequence = DOTween.Sequence();
         GameModel.Instance.Score = 0;
         Time.timeScale = 1f;
     }
+
     private void Update()
     {
         MovementForce = GameModel.Instance.MovementForce;
         Score = GameModel.Instance.Score;
-        CheckScore();
-        CheckVehicle();
-        CharacterMovement();
+
+        if (isTap)
+        {
+            if (Input.anyKey)
+            {
+                text.enabled = false;
+                isTap = false;
+            }
+        }
+        else
+        {
+            CharacterMovement();
+            CheckScore();
+            CheckVehicle();
+        }
         // if (Input.GetKeyDown(KeyCode.Space))
         // {
         //     GameModel.Instance.Score += 10;
@@ -47,7 +68,6 @@ public class Character : MonoBehaviour
 
     private void CharacterMovement()
     {
-
         if (MovementForce > 0 && transform.position.x < 3.5f)
         {
             transform.Translate(Vector3.right * MovementForce * Speed * Time.deltaTime);
@@ -56,12 +76,13 @@ public class Character : MonoBehaviour
         {
             transform.Translate(Vector3.right * MovementForce * Speed * Time.deltaTime);
         }
+
         transform.Translate(Vector3.forward * Speed * Time.deltaTime);
     }
 
     public void CheckScore()
     {
-        switch(Score)
+        switch (Score)
         {
             case 0:
                 if (!VehicleIsRenderable && CurrentVehicle != Vehicles.Human)
@@ -69,6 +90,7 @@ public class Character : MonoBehaviour
                     GetVehiclePrefab(VehicleKeys.Human);
                     CurrentVehicle = Vehicles.Human;
                 }
+
                 break;
             case 100:
                 if (!VehicleIsRenderable && CurrentVehicle != Vehicles.Bicycle)
@@ -76,6 +98,7 @@ public class Character : MonoBehaviour
                     GetVehiclePrefab(VehicleKeys.Bicycle);
                     CurrentVehicle = Vehicles.Bicycle;
                 }
+
                 break;
             case 200:
                 if (!VehicleIsRenderable && CurrentVehicle != Vehicles.Peugeout308)
@@ -83,6 +106,7 @@ public class Character : MonoBehaviour
                     GetVehiclePrefab(VehicleKeys.Peugeout308);
                     CurrentVehicle = Vehicles.Peugeout308;
                 }
+
                 break;
         }
     }
@@ -114,6 +138,7 @@ public class Character : MonoBehaviour
             var bundle = await BundleModel.Instance.LoadPrefab(vehicleName, gameObject.transform);
             VehicleIsRenderable = false;
         }
+
         var oldRendererObject = GameObject.FindGameObjectWithTag("Vehicle");
         if (oldRendererObject != null && CurrentVehicle != Vehicles.Human)
         {
