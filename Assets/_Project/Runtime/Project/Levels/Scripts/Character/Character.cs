@@ -15,12 +15,12 @@ public class Character : MonoBehaviour
     {
         public const int EmptyToHuman = 0;
         public const int HumanToHorse = 50;
-        public const int HorseToBicycle = 10;
+        public const int HorseToBicycle = 100;
         public const int BicycleToOldCar = 150;
         public const int OldCarToChopper = 200;
         public const int ChopperToTank = 250;
         public const int TankToPlane = 300;
-        public const int PlaneToPeugeout = 20;
+        public const int PlaneToPeugeout = 350;
     }
     public enum Vehicles
     {
@@ -42,6 +42,7 @@ public class Character : MonoBehaviour
     private float MovementForce;
     public TextMeshProUGUI text;
     bool isTap = true;
+    private bool isTriggered;
 
 
     void Awake()
@@ -94,10 +95,12 @@ public class Character : MonoBehaviour
 
     private async void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Area"))
+        if (other.CompareTag("Area") && !isTriggered)
         {
             var pointLabel = other.GetComponentInChildren<Canvas>().GetComponentInChildren<TMP_Text>();
             GameModel.Instance.Score += int.Parse(pointLabel.text);
+            CheckScore();
+            isTriggered = true;
         }
 
         if (other.CompareTag("Wall"))
@@ -107,12 +110,17 @@ public class Character : MonoBehaviour
         }
     }
 
+    private void OnTriggerExit(Collider other)
+    {
+        isTriggered = false;
+    }
+
     //değişecek if ile yapılacak!!!
     public void CheckScore()
     {
         switch (Score)
         {
-            case VehiclesChangeScores.EmptyToHuman:
+            case int n when (n >= VehiclesChangeScores.EmptyToHuman && n < VehiclesChangeScores.HumanToHorse):
                 if (!VehicleIsRenderable && CurrentVehicle != Vehicles.Human)
                 {
                     GetVehiclePrefab(VehicleKeys.Human);
@@ -120,7 +128,7 @@ public class Character : MonoBehaviour
                 }
 
                 break;
-            case VehiclesChangeScores.HorseToBicycle:
+            case int n when (n >= VehiclesChangeScores.HorseToBicycle && n < VehiclesChangeScores.BicycleToOldCar):
                 if (!VehicleIsRenderable && CurrentVehicle != Vehicles.Bicycle)
                 {
                     GetVehiclePrefab(VehicleKeys.Bicycle);
@@ -168,7 +176,7 @@ public class Character : MonoBehaviour
         }
 
         var oldRendererObject = GameObject.FindGameObjectWithTag("Vehicle");
-        if (oldRendererObject != null && CurrentVehicle != Vehicles.Human)
+        if (oldRendererObject != null)
         {
             Destroy(oldRendererObject);
         }
