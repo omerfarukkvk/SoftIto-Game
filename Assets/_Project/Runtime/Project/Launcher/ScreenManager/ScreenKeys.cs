@@ -9,4 +9,5 @@ public class ScreenKeys
     public const string LevelScreen = "LevelScreen";
     public const string SettingsScreen = "SettingsScreen";
     public const string PauseScreen = "PauseScreen";
+    public const string GameOverScreen = "GameOverScreen";
 }

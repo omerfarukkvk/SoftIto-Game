@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5024442796410633517}
+  - component: {fileID: 2761264182727020688}
   m_Layer: 0
   m_Name: Barrier
   m_TagString: Wall
@@ -32,6 +33,27 @@ Transform:
   - {fileID: 8406921652230049079}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &2761264182727020688
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 824824548214127775}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 3.286643, y: 1.5869071, z: 0.1057609}
+  m_Center: {x: 0.029975414, y: 0.94218385, z: 0.013666481}
 --- !u!1001 &8296153666688854748
 PrefabInstance:
   m_ObjectHideFlags: 0

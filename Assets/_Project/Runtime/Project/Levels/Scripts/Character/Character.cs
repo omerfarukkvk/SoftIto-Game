@@ -10,6 +10,18 @@ using TMPro;
 
 public class Character : MonoBehaviour
 {
+    [Serializable]
+    public class VehiclesChangeScores
+    {
+        public const int EmptyToHuman = 0;
+        public const int HumanToHorse = 50;
+        public const int HorseToBicycle = 10;
+        public const int BicycleToOldCar = 150;
+        public const int OldCarToChopper = 200;
+        public const int ChopperToTank = 250;
+        public const int TankToPlane = 300;
+        public const int PlaneToPeugeout = 20;
+    }
     public enum Vehicles
     {
         Empty,
@@ -26,12 +38,9 @@ public class Character : MonoBehaviour
     [SerializeField] private Vehicles CurrentVehicle;
     [SerializeField] private int Score;
     [SerializeField] private int Speed;
-    [SerializeField] private Slider slider;
     private bool VehicleIsRenderable;
     private float MovementForce;
     public TextMeshProUGUI text;
-
-
     bool isTap = true;
 
 
@@ -64,10 +73,9 @@ public class Character : MonoBehaviour
             CheckVehicle();
             CharacterMovement();
         }
-        // if (Input.GetKeyDown(KeyCode.Space))
-        // {
-        //     GameModel.Instance.Score += 10;
-        // }
+
+        if (Input.GetKeyDown(KeyCode.Space))
+            GameModel.Instance.Score += 10;
     }
 
     private void CharacterMovement()
@@ -84,7 +92,7 @@ public class Character : MonoBehaviour
         transform.Translate(Vector3.forward * Speed * Time.deltaTime);
     }
 
-    private void OnTriggerEnter(Collider other)
+    private async void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Area"))
         {
@@ -95,14 +103,16 @@ public class Character : MonoBehaviour
         if (other.CompareTag("Wall"))
         {
             Time.timeScale = 0f;
+            await ScreenModel.Instance.OpenScreen(ScreenKeys.GameOverScreen, ScreenLayers.Layer2);
         }
     }
 
+    //değişecek if ile yapılacak!!!
     public void CheckScore()
     {
         switch (Score)
         {
-            case 0:
+            case VehiclesChangeScores.EmptyToHuman:
                 if (!VehicleIsRenderable && CurrentVehicle != Vehicles.Human)
                 {
                     GetVehiclePrefab(VehicleKeys.Human);
@@ -110,7 +120,7 @@ public class Character : MonoBehaviour
                 }
 
                 break;
-            case 100:
+            case VehiclesChangeScores.HorseToBicycle:
                 if (!VehicleIsRenderable && CurrentVehicle != Vehicles.Bicycle)
                 {
                     GetVehiclePrefab(VehicleKeys.Bicycle);
@@ -118,7 +128,7 @@ public class Character : MonoBehaviour
                 }
 
                 break;
-            case 200:
+            case VehiclesChangeScores.PlaneToPeugeout:
                 if (!VehicleIsRenderable && CurrentVehicle != Vehicles.Peugeout308)
                 {
                     GetVehiclePrefab(VehicleKeys.Peugeout308);
@@ -153,7 +163,6 @@ public class Character : MonoBehaviour
         VehicleIsRenderable = true;
         if (VehicleIsRenderable)
         {
-            
             var bundle = await BundleModel.Instance.LoadPrefab(vehicleName, gameObject.transform);
             VehicleIsRenderable = false;
         }
