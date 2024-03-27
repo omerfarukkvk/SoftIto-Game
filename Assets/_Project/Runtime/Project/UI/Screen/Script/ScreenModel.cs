@@ -13,7 +13,7 @@ public class ScreenModel : SingletonBehaviour<ScreenModel>
         public Transform Layer;
     }
     public List<ScreenLayer> screenLayers;
-
+    
     void Awake()
     {
         DontDestroyOnLoad(gameObject);

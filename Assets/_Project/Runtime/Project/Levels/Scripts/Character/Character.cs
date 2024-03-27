@@ -22,6 +22,7 @@ public class Character : MonoBehaviour
         public const int TankToPlane = 300;
         public const int PlaneToPeugeout = 350;
     }
+
     public enum Vehicles
     {
         Empty,
@@ -35,6 +36,7 @@ public class Character : MonoBehaviour
         Peugeout308
     }
 
+    public ParticleSystem partial;
     [SerializeField] private Vehicles CurrentVehicle;
     [SerializeField] private int Score;
     [SerializeField] private int Speed;
@@ -51,7 +53,7 @@ public class Character : MonoBehaviour
         Time.timeScale = 1f;
     }
 
-    private void Update()
+    private async void Update()
     {
         MovementForce = GameModel.Instance.MovementForce;
         Score = GameModel.Instance.Score;
@@ -60,6 +62,7 @@ public class Character : MonoBehaviour
         {
             GameModel.Instance.Score = 0;
         }
+
         if (isTap)
         {
             if (Input.anyKey)
@@ -75,8 +78,13 @@ public class Character : MonoBehaviour
             CharacterMovement();
         }
 
-        if (Input.GetKeyDown(KeyCode.Space))
-            GameModel.Instance.Score += 10;
+        // if (Input.GetKeyDown(KeyCode.Space))
+        //     GameModel.Instance.Score += 10;
+        if (transform.position.z > 120)
+        {
+            await ScreenModel.Instance.OpenScreen(ScreenKeys.WinScreen, ScreenLayers.Layer2);
+            Time.timeScale = 0f;
+        }
     }
 
     private void CharacterMovement()
@@ -131,6 +139,8 @@ public class Character : MonoBehaviour
             case int n when (n >= VehiclesChangeScores.HorseToBicycle && n < VehiclesChangeScores.BicycleToOldCar):
                 if (!VehicleIsRenderable && CurrentVehicle != Vehicles.Bicycle)
                 {
+                    // StartCoroutine(StartPartial());
+                    StartCoroutine(StartPartial());
                     GetVehiclePrefab(VehicleKeys.Bicycle);
                     CurrentVehicle = Vehicles.Bicycle;
                 }
@@ -139,6 +149,7 @@ public class Character : MonoBehaviour
             case VehiclesChangeScores.PlaneToPeugeout:
                 if (!VehicleIsRenderable && CurrentVehicle != Vehicles.Peugeout308)
                 {
+                    StartCoroutine(StartPartial());
                     GetVehiclePrefab(VehicleKeys.Peugeout308);
                     CurrentVehicle = Vehicles.Peugeout308;
                 }
@@ -146,6 +157,13 @@ public class Character : MonoBehaviour
                 break;
         }
     }
+
+    private IEnumerator StartPartial()
+    {
+        partial.Play();
+        yield return new WaitForSeconds(0.5f);
+    }
+
 
     private void CheckVehicle()
     {
