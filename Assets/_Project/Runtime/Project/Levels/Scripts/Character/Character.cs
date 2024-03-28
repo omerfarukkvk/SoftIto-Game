@@ -7,6 +7,8 @@ using JetBrains.Annotations;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using CodiceApp.EventTracking;
+using PlasticGui.WorkspaceWindow;
 
 public class Character : MonoBehaviour
 {
@@ -46,7 +48,6 @@ public class Character : MonoBehaviour
     bool isTap = true;
     private bool isTriggered;
 
-
     void Awake()
     {
         GameModel.Instance.Score = 0;
@@ -78,8 +79,8 @@ public class Character : MonoBehaviour
             CharacterMovement();
         }
 
-        // if (Input.GetKeyDown(KeyCode.Space))
-        //     GameModel.Instance.Score += 10;
+
+        //Oyun sonu ekranı ama hatalı on trigger enter ile yapılacak
         if (transform.position.z > 120)
         {
             await ScreenModel.Instance.OpenScreen(ScreenKeys.WinScreen, ScreenLayers.Layer2);
@@ -89,13 +90,13 @@ public class Character : MonoBehaviour
 
     private void CharacterMovement()
     {
-        if (MovementForce > 0 && transform.position.x < 3.5f)
+        if (MovementForce > 0)
         {
             transform.Translate(Vector3.right * MovementForce * Speed * Time.deltaTime);
         }
-        else if (MovementForce < 0 && transform.position.x > -3.5f)
+        else if (MovementForce < 0)
         {
-            transform.Translate(Vector3.right * MovementForce * Speed * Time.deltaTime);
+            transform.Translate(Vector3.left * -MovementForce * Speed * Time.deltaTime);
         }
 
         transform.Translate(Vector3.forward * Speed * Time.deltaTime);
@@ -123,11 +124,11 @@ public class Character : MonoBehaviour
         isTriggered = false;
     }
 
-    //değişecek if ile yapılacak!!!
     public void CheckScore()
     {
         switch (Score)
         {
+            //human
             case int n when (n >= VehiclesChangeScores.EmptyToHuman && n < VehiclesChangeScores.HumanToHorse):
                 if (!VehicleIsRenderable && CurrentVehicle != Vehicles.Human)
                 {
@@ -136,20 +137,64 @@ public class Character : MonoBehaviour
                 }
 
                 break;
+            //horse
+            case int n when (n >= VehiclesChangeScores.HumanToHorse && n < VehiclesChangeScores.HorseToBicycle):
+                if (!VehicleIsRenderable && CurrentVehicle != Vehicles.Horse)
+                {
+                    GetVehiclePrefab(VehicleKeys.Horse);
+                    CurrentVehicle = Vehicles.Horse;
+                }
+
+                break;
+            //bicycle
             case int n when (n >= VehiclesChangeScores.HorseToBicycle && n < VehiclesChangeScores.BicycleToOldCar):
                 if (!VehicleIsRenderable && CurrentVehicle != Vehicles.Bicycle)
                 {
-                    // StartCoroutine(StartPartial());
-                    StartCoroutine(StartPartial());
                     GetVehiclePrefab(VehicleKeys.Bicycle);
                     CurrentVehicle = Vehicles.Bicycle;
                 }
 
                 break;
+            //oldcar !!!!!!!!!!!!!!!!!!!!!!!!!!!!
+            case int n when (n >= VehiclesChangeScores.BicycleToOldCar && n < VehiclesChangeScores.OldCarToChopper):
+                if (!VehicleIsRenderable && CurrentVehicle != Vehicles.OldCar)
+                {
+                    GetVehiclePrefab(VehicleKeys.OldCar);
+                    CurrentVehicle = Vehicles.OldCar;
+                }
+
+                break;
+            //chopper
+            case int n when (n >= VehiclesChangeScores.OldCarToChopper && n < VehiclesChangeScores.ChopperToTank):
+                if (!VehicleIsRenderable && CurrentVehicle != Vehicles.Chopper)
+                {
+                    GetVehiclePrefab(VehicleKeys.Chopper);
+                    CurrentVehicle = Vehicles.Chopper;
+                }
+
+                break;
+            //tank
+            case int n when (n >= VehiclesChangeScores.ChopperToTank && n < VehiclesChangeScores.TankToPlane):
+                if (!VehicleIsRenderable && CurrentVehicle != Vehicles.Tank)
+                {
+                    GetVehiclePrefab(VehicleKeys.Tank);
+                    CurrentVehicle = Vehicles.Tank;
+                }
+
+                break;
+            //plane
+            case int n when (n >= VehiclesChangeScores.TankToPlane && n < VehiclesChangeScores.PlaneToPeugeout):
+                if (!VehicleIsRenderable && CurrentVehicle != Vehicles.Plane)
+                {
+                    GetVehiclePrefab(VehicleKeys.Plane);
+                    CurrentVehicle = Vehicles.Plane;
+                }
+
+                break;
+            //peugeout
             case VehiclesChangeScores.PlaneToPeugeout:
                 if (!VehicleIsRenderable && CurrentVehicle != Vehicles.Peugeout308)
                 {
-                    StartCoroutine(StartPartial());
                     GetVehiclePrefab(VehicleKeys.Peugeout308);
                     CurrentVehicle = Vehicles.Peugeout308;
                 }
@@ -157,13 +202,6 @@ public class Character : MonoBehaviour
                 break;
         }
     }
-
-    private IEnumerator StartPartial()
-    {
-        partial.Play();
-        yield return new WaitForSeconds(0.5f);
-    }
-
 
     private void CheckVehicle()
     {
@@ -189,6 +227,7 @@ public class Character : MonoBehaviour
         VehicleIsRenderable = true;
         if (VehicleIsRenderable)
         {
+            partial.Play();
             var bundle = await BundleModel.Instance.LoadPrefab(vehicleName, gameObject.transform);
             VehicleIsRenderable = false;
         }

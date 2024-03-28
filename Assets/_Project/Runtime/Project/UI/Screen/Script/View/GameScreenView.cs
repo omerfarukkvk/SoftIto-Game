@@ -6,60 +6,82 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.SocialPlatforms.Impl;
 using UnityEngine.UI;
-
-namespace _Project.Runtime.Project.UI.Screen.Script.View
+public class GameScreenView : MonoBehaviour
 {
-    public class GameScreenView : MonoBehaviour
+    public TMP_Text MinValue;
+    public TMP_Text MaxValue;
+    public Slider MovementSlider;
+    public Slider ScoreSlider;
+    Vector2 fp;
+    Vector2 lp;
+    float movementThreshold = 10f;
+    void Awake()
     {
-        public TMP_Text MinValue;
-        public TMP_Text MaxValue;
-        public Slider MovementSlider;
-        public Slider ScoreSlider;
-        void Awake()
-        {
-            ScoreSlider.minValue = 0;
-            ScoreSlider.maxValue = 100;
-        }
+        ScoreSlider.minValue = 0;
+        ScoreSlider.maxValue = 100;
+    }
 
-        private void Update()
+    private void Update()
+    {
+        MinValue.text = ScoreSlider.minValue.ToString();
+        MaxValue.text = ScoreSlider.maxValue.ToString();
+        GameModel.Instance.MovementForce = MovementSlider.value;
+        ScoreSlider.value = GameModel.Instance.Score;
+        if(Input.touchCount == 1)
         {
-            MinValue.text = ScoreSlider.minValue.ToString();
-            MaxValue.text = ScoreSlider.maxValue.ToString();
-            GameModel.Instance.MovementForce = MovementSlider.value;
-            ScoreSlider.value = GameModel.Instance.Score;
-            CheckScore();
-        }
-
-        private void CheckScore()
-        {
-            switch(GameModel.Instance.Score)
+            Touch touch = Input.GetTouch(0);
+            //Debug.Log(touch.phase);
+            if(touch.phase == TouchPhase.Began)
             {
-                case 100:
-                    SetSliderValues(100, 200);
-                    break;
-                case 200:
-                    SetSliderValues(200, 300);
-                    break;
-                //Caseler eklenecek!!
+                fp = touch.position;
+                lp = touch.position;
+            }
+            else if(touch.phase == TouchPhase.Moved)
+            {
+                lp = touch.position;
+                float movement = lp.x - fp.x;
+                if(Mathf.Abs(movement) > movementThreshold)
+                    GameModel.Instance.MovementForce = movement / (Screen.width / 2);   
+            }
+            else if(touch.phase == TouchPhase.Ended)
+            {
+                //number = 0;
+                GameModel.Instance.MovementForce = 0;
             }
         }
+        //Debug.Log("Movement force: " + GameModel.Instance.MovementForce);
+        CheckScore();
+    }
 
-        void SetSliderValues(int minValue, int maxValue)
+    private void CheckScore()
+    {
+        switch(GameModel.Instance.Score)
         {
-            ScoreSlider.minValue = minValue;
-            ScoreSlider.maxValue = maxValue;
-            ScoreSlider.value = minValue;
+            case 100:
+                SetSliderValues(100, 200);
+                break;
+            case 200:
+                SetSliderValues(200, 300);
+                break;
+            //Caseler eklenecek!!
         }
+    }
 
-        public async void OnClickPauseButton()
-        {
-            Time.timeScale = 0f;
-            await ScreenModel.Instance.OpenScreen(ScreenKeys.PauseScreen, ScreenLayers.Layer1);
-        }
+    void SetSliderValues(int minValue, int maxValue)
+    {
+        ScoreSlider.minValue = minValue;
+        ScoreSlider.maxValue = maxValue;
+        ScoreSlider.value = minValue;
+    }
 
-        public void OnChangedMovementSlider()
-        {
-            MovementSlider.value = 0;
-        }
+    public async void OnClickPauseButton()
+    {
+        Time.timeScale = 0f;
+        await ScreenModel.Instance.OpenScreen(ScreenKeys.PauseScreen, ScreenLayers.Layer1);
+    }
+
+    public void OnChangedMovementSlider()
+    {
+        MovementSlider.value = 0;
     }
 }

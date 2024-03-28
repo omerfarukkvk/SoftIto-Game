@@ -1,10 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class WinScreenView : MonoBehaviour
 {
+    public TMP_Text ScoreLabel;
+    void Awake()
+    {
+        ScoreLabel.text += GameModel.Instance.Score.ToString();
+    }
     public async void OnClickNextButton()
     {
         await BundleModel.Instance.UnLoadScene("Level2");

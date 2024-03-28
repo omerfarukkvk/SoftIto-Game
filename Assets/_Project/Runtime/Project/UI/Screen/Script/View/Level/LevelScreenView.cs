@@ -5,7 +5,7 @@ using DG.Tweening;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-public class GameScreenView : MonoBehaviour
+public class LevelScreenView : MonoBehaviour
 {
     /*public Image Image1;
     private Sequence _sequence;
