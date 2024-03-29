@@ -111,7 +111,7 @@ public class GameScreenView : MonoBehaviour
                 GameModel.Instance.MovementForce = 0;
             }
         }
-        Debug.Log("Movement force: " + GameModel.Instance.MovementForce);
+        //Debug.Log("Movement force: " + GameModel.Instance.MovementForce);
     }
 
     private void CheckScore()
