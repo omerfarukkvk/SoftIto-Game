@@ -17,7 +17,7 @@ public class SettingsScreenView : MonoBehaviour
 
     public void OnClickBack()
     {
-        ScreenModel.Instance.ClearLayer(ScreenLayers.Layer2);
+        ScreenManager.Instance.ClearLayer(ScreenLayers.Layer2);
     }
 
     public void OnValueChangeFPSToggle(bool b)

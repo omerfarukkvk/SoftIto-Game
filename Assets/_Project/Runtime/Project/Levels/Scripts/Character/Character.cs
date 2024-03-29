@@ -1,14 +1,11 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using Codice.Client.BaseCommands.BranchExplorer;
 using DG.Tweening;
 using JetBrains.Annotations;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
-using CodiceApp.EventTracking;
-using PlasticGui.WorkspaceWindow;
 
 public class Character : MonoBehaviour
 {
@@ -83,7 +80,7 @@ public class Character : MonoBehaviour
         //Oyun sonu ekranı ama hatalı on trigger enter ile yapılacak
         if (transform.position.z > 120)
         {
-            await ScreenModel.Instance.OpenScreen(ScreenKeys.WinScreen, ScreenLayers.Layer2);
+            await ScreenManager.Instance.OpenScreen(ScreenKeys.WinScreen, ScreenLayers.Layer2);
             Time.timeScale = 0f;
         }
     }
@@ -115,7 +112,7 @@ public class Character : MonoBehaviour
         if (other.CompareTag("Wall"))
         {
             Time.timeScale = 0f;
-            await ScreenModel.Instance.OpenScreen(ScreenKeys.GameOverScreen, ScreenLayers.Layer2);
+            await ScreenManager.Instance.OpenScreen(ScreenKeys.GameOverScreen, ScreenLayers.Layer2);
         }
     }
 
@@ -192,7 +189,7 @@ public class Character : MonoBehaviour
 
                 break;
             //peugeout
-            /*case VehiclesChangeScores.PlaneToPeugeout:
+            case VehiclesChangeScores.PlaneToPeugeout:
                 if (!VehicleIsRenderable && CurrentVehicle != Vehicles.Peugeout308)
                 {
                     GetVehiclePrefab(VehicleKeys.Peugeout308);
@@ -200,7 +197,6 @@ public class Character : MonoBehaviour
                 }
 
                 break;
-            */
         }
     }
 

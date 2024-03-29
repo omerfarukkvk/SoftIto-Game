@@ -14,18 +14,18 @@ public class PauseScreenView : MonoBehaviour
     }
     public async void OnClickResumeButton()
     {
-        await ScreenModel.Instance.OpenScreen(ScreenKeys.GameScreen, ScreenLayers.Layer1);
+        await ScreenManager.Instance.OpenScreen(ScreenKeys.GameScreen, ScreenLayers.Layer1);
         Time.timeScale = 1f;
     }
     
     public async void OnClickSettingsButton()
     {
-        await ScreenModel.Instance.OpenScreen(ScreenKeys.SettingsScreen, ScreenLayers.Layer2);
+        await ScreenManager.Instance.OpenScreen(ScreenKeys.SettingsScreen, ScreenLayers.Layer2);
     }
     
     public async void OnClickExitButton()
     {
-        ScreenModel.Instance.ClearLayer(ScreenLayers.Layer2);
+        ScreenManager.Instance.ClearLayer(ScreenLayers.Layer2);
         await BundleModel.Instance.LoadScene("MenuScene", LoadSceneMode.Single);
     }
 }

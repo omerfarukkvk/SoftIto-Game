@@ -10,11 +10,11 @@ namespace _Project.Runtime.Project.UI.Screen.Script.View
         }
         public async void OnClickSettingsScreen()
         {
-            await ScreenModel.Instance.OpenScreen(ScreenKeys.SettingsScreen, ScreenLayers.Layer2);
+            await ScreenManager.Instance.OpenScreen(ScreenKeys.SettingsScreen, ScreenLayers.Layer2);
         }
         public async void OnClickGameScreen()
         {
-            await ScreenModel.Instance.OpenScreen(ScreenKeys.LevelScreen, ScreenLayers.Layer1);
+            await ScreenManager.Instance.OpenScreen(ScreenKeys.LevelScreen, ScreenLayers.Layer1);
         }
     }
 }

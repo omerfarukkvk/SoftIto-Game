@@ -10,6 +10,7 @@ public class GameScreenView : MonoBehaviour
 {
     public TMP_Text MinValue;
     public TMP_Text MaxValue;
+    public TMP_Text CurrentScoreVal;
     public Slider MovementSlider;
     public Slider ScoreSlider;
     private Vector2 fp;
@@ -60,6 +61,7 @@ public class GameScreenView : MonoBehaviour
     {
         MinValue.text = ScoreSlider.minValue.ToString();
         MaxValue.text = ScoreSlider.maxValue.ToString();
+        CurrentScoreVal.text = GameModel.Instance.Score.ToString();
         GameModel.Instance.MovementForce = MovementSlider.value;
         ScoreSlider.value = GameModel.Instance.Score;
         FPSFunc();
@@ -155,7 +157,7 @@ public class GameScreenView : MonoBehaviour
     public async void OnClickPauseButton()
     {
         Time.timeScale = 0f;
-        await ScreenModel.Instance.OpenScreen(ScreenKeys.PauseScreen, ScreenLayers.Layer1);
+        await ScreenManager.Instance.OpenScreen(ScreenKeys.PauseScreen, ScreenLayers.Layer1);
     }
 
     public void OnChangedMovementSlider()

@@ -12,6 +12,6 @@ public class LaunchLevel : MonoBehaviour
 
     public async void OpenGameScreen()
     {
-        await ScreenModel.Instance.OpenScreen(ScreenKeys.GameScreen, ScreenLayers.Layer1);
+        await ScreenManager.Instance.OpenScreen(ScreenKeys.GameScreen, ScreenLayers.Layer1);
     }
 }

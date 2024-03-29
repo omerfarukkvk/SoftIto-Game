@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using UnityEngine;
 
-public class ScreenModel : SingletonBehaviour<ScreenModel>
+public class ScreenManager : SingletonBehaviour<ScreenManager>
 {
     [Serializable]
     public class ScreenLayer
