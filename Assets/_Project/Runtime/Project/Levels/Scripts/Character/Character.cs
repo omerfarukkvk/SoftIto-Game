@@ -192,7 +192,7 @@ public class Character : MonoBehaviour
 
                 break;
             //peugeout
-            case VehiclesChangeScores.PlaneToPeugeout:
+            /*case VehiclesChangeScores.PlaneToPeugeout:
                 if (!VehicleIsRenderable && CurrentVehicle != Vehicles.Peugeout308)
                 {
                     GetVehiclePrefab(VehicleKeys.Peugeout308);
@@ -200,6 +200,7 @@ public class Character : MonoBehaviour
                 }
 
                 break;
+            */
         }
     }
 

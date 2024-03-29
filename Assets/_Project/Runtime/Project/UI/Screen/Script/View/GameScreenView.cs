@@ -14,6 +14,7 @@ public class GameScreenView : MonoBehaviour
     public Slider ScoreSlider;
     private Vector2 fp;
     private Vector2 lp;
+    private bool ShowMovementSlider;
     
     //FPS
     private bool ShowFPS;
@@ -25,17 +26,33 @@ public class GameScreenView : MonoBehaviour
     public TMP_Text FPSLabel;
     void Awake()
     {
-        ScoreSlider.minValue = 0;
-        ScoreSlider.maxValue = 100;
+        //ScoreSlider.minValue = 0;
+        //ScoreSlider.maxValue = 50;
         ShowFPS = GameModel.Instance.ShowFPS;
+        ShowMovementSlider = GameModel.Instance.MovementSliderVal;
     }
 
     private void Start()
     {
+        //Movement Slider
+        if (ShowMovementSlider)
+        {
+            MovementSlider.gameObject.SetActive(true);
+        }
+        else
+        {
+            MovementSlider.gameObject.SetActive(false);
+        }
+        
+        //FPS show
         if (ShowFPS)
         {
             FPSLabel.gameObject.SetActive(true);
             timeleft = updateInterval;
+        }
+        else
+        {
+            FPSLabel.gameObject.SetActive(false);
         }
     }
 
@@ -45,6 +62,13 @@ public class GameScreenView : MonoBehaviour
         MaxValue.text = ScoreSlider.maxValue.ToString();
         GameModel.Instance.MovementForce = MovementSlider.value;
         ScoreSlider.value = GameModel.Instance.Score;
+        FPSFunc();
+        TouchMovement();
+        CheckScore();
+    }
+
+    public void FPSFunc()
+    {
         if (ShowFPS)
         {
             timeleft -= Time.deltaTime;
@@ -62,6 +86,10 @@ public class GameScreenView : MonoBehaviour
                 frames = 0;
             }
         }
+    }
+
+    public void TouchMovement()
+    {
         if(Input.touchCount == 1)
         {
             Touch touch = Input.GetTouch(0);
@@ -71,11 +99,11 @@ public class GameScreenView : MonoBehaviour
                 fp = touch.position;
                 lp = touch.position;
             }
-            else if(touch.phase == TouchPhase.Moved)
+            else if(touch.phase == TouchPhase.Stationary)
             {
                 lp = touch.position;
                 float movement = lp.x - fp.x;
-                GameModel.Instance.MovementForce = movement / (Screen.width / 2);
+                GameModel.Instance.MovementForce = movement / Screen.width;
             }
             else if(touch.phase == TouchPhase.Ended)
             {
@@ -83,29 +111,45 @@ public class GameScreenView : MonoBehaviour
                 GameModel.Instance.MovementForce = 0;
             }
         }
-        //Debug.Log("Movement force: " + GameModel.Instance.MovementForce);
-        CheckScore();
+        Debug.Log("Movement force: " + GameModel.Instance.MovementForce);
     }
 
     private void CheckScore()
     {
         switch(GameModel.Instance.Score)
         {
-            case 100:
-                SetSliderValues(100, 200);
+            case int n when(n >= 0 && n < 50):
+                SetSliderValues(0, 50, GameModel.Instance.Score);
                 break;
-            case 200:
-                SetSliderValues(200, 300);
+            case int n when(n >= 50 && n < 100):
+                SetSliderValues(50, 100, GameModel.Instance.Score);
                 break;
-            //Caseler eklenecek!!
+            case int n when(n >= 100 && n < 150):
+                SetSliderValues(100, 150,GameModel.Instance.Score);
+                break;
+            case int n when(n >= 150 && n < 200):
+                SetSliderValues(150, 200,GameModel.Instance.Score);
+                break;
+            case int n when(n >= 200 && n < 250):
+                SetSliderValues(200, 250,GameModel.Instance.Score);
+                break;
+            case int n when(n >= 250 && n < 300):
+                SetSliderValues(250, 300,GameModel.Instance.Score);
+                break;
+            case int n when(n >= 300 && n < 350):
+                SetSliderValues(300, 350,GameModel.Instance.Score);
+                break;
+            case int n when(n >= 350 && n < 400):
+                SetSliderValues(350, 400,GameModel.Instance.Score);
+                break;
         }
     }
 
-    void SetSliderValues(int minValue, int maxValue)
+    void SetSliderValues(int minValue, int maxValue, int sliderVal)
     {
         ScoreSlider.minValue = minValue;
         ScoreSlider.maxValue = maxValue;
-        ScoreSlider.value = minValue;
+        ScoreSlider.value = sliderVal;
     }
 
     public async void OnClickPauseButton()
