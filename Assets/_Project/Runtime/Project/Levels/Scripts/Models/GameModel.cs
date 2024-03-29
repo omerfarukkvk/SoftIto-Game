@@ -7,4 +7,5 @@ public class GameModel : SingletonModel<GameModel>
 {
     public int Score;
     public float MovementForce;
+    public bool ShowFPS;
 }
