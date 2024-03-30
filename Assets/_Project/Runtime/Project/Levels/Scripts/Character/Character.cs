@@ -55,7 +55,7 @@ public class Character : MonoBehaviour
         Time.timeScale = 1f;
     }
 
-    private async void Update()
+    private void Update()
     {
         MovementForce = GameModel.Instance.MovementForce;
         Score = GameModel.Instance.Score;
@@ -78,14 +78,6 @@ public class Character : MonoBehaviour
             CheckScore();
             CheckVehicle();
             CharacterMovement();
-        }
-
-
-        //Oyun sonu ekranı ama hatalı on trigger enter ile yapılacak
-        if (transform.position.z > 120)
-        {
-            await ScreenManager.Instance.OpenScreen("WinnerScreen", ScreenLayers.Layer1);
-            Time.timeScale = 0f;
         }
     }
 
@@ -118,6 +110,11 @@ public class Character : MonoBehaviour
             RuntimeManager.PlayOneShot(CrashSound);
             Time.timeScale = 0f;
             await ScreenManager.Instance.OpenScreen(ScreenKeys.GameOverScreen, ScreenLayers.Layer2);
+        }
+        if(other.CompareTag("Finish"))
+        {
+            Time.timeScale = 0f;
+            await ScreenManager.Instance.OpenScreen("WinnerScreen", ScreenLayers.Layer1);
         }
     }
 
