@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8037670897852990308}
   - component: {fileID: 3321318692412057022}
+  - component: {fileID: 6276817288943954570}
   m_Layer: 0
   m_Name: Bicycle
   m_TagString: Vehicle
@@ -54,6 +55,27 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.2556138, y: 1.3264061, z: 2.7135386}
   m_Center: {x: -0.03868875, y: 0.88414496, z: 0.16089654}
+--- !u!95 &6276817288943954570
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6818479788027352540}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 1a5d9aa542c4f4594b9cb4b45124d924, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1001 &8525632521332479072
 PrefabInstance:
   m_ObjectHideFlags: 0

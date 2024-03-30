@@ -13,17 +13,15 @@ public class WinScreenView : MonoBehaviour
     }
     public async void OnClickNextButton()
     {
-        await BundleModel.Instance.UnLoadScene("Level2");
-        ScreenManager.Instance.ClearLayer(ScreenLayers.Layer2);
+        ScreenManager.Instance.ClearLayer(ScreenLayers.Layer1);
         await BundleModel.Instance.LoadScene("Level2", LoadSceneMode.Single);
     }
     public async void OnClickSettingsButton()
     {
-        await ScreenManager.Instance.OpenScreen(ScreenKeys.SettingsScreen, ScreenLayers.Layer2);
+        await ScreenManager.Instance.OpenScreen(ScreenKeys.SettingsScreen, ScreenLayers.Layer1);
     }
     public async void OnClickExitButton()
     {
-        ScreenManager.Instance.ClearLayer(ScreenLayers.Layer2);
         await BundleModel.Instance.LoadScene("MenuScene", LoadSceneMode.Single);
     }
 }

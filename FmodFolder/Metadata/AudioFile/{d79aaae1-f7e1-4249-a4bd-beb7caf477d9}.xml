@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{d79aaae1-f7e1-4249-a4bd-beb7caf477d9}">
+		<property name="assetPath">
+			<value>CrashSound.mp3</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>48</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>0.52800000000000002</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{40b899f7-b7c2-4f09-87b7-6c7b0f03857d}</destination>
+		</relationship>
+	</object>
+</objects>
