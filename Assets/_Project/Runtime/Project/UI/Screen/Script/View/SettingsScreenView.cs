@@ -20,17 +20,19 @@ public class SettingsScreenView : MonoBehaviour
         ScreenManager.Instance.ClearLayer(ScreenLayers.Layer2);
     }
 
-    public void OnValueChangeFPSToggle(bool b)
+    public async void OnValueChangeFPSToggle(bool b)
     {
         if (b)
         {
             GameModel.Instance.ShowFPS = true;
             FPSToogle.isOn = true;
+            await ScreenManager.Instance.OpenScreen(ScreenKeys.NotificationScreen, ScreenLayers.Layer4);
         }
         else
         {
             GameModel.Instance.ShowFPS = false;
             FPSToogle.isOn = false;
+            ScreenManager.Instance.ClearLayer(ScreenLayers.Layer4);
         }
     }
     public void OnValueChangeMovementSliderToggle(bool b)

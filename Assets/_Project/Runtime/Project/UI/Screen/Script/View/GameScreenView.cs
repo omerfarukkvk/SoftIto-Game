@@ -17,19 +17,10 @@ public class GameScreenView : MonoBehaviour
     private Vector2 lp;
     private bool ShowMovementSlider;
     
-    //FPS
-    private bool ShowFPS;
-    public float updateInterval = 0.5f;
-
-    private float accum = 0; // Toplam kare zamanı
-    private int frames = 0; // Toplam kare sayısı
-    private float timeleft; // Güncelleme aralığı
-    public TMP_Text FPSLabel;
     void Awake()
     {
         //ScoreSlider.minValue = 0;
         //ScoreSlider.maxValue = 50;
-        ShowFPS = GameModel.Instance.ShowFPS;
         ShowMovementSlider = GameModel.Instance.MovementSliderVal;
     }
 
@@ -45,16 +36,6 @@ public class GameScreenView : MonoBehaviour
             MovementSlider.gameObject.SetActive(false);
         }
         
-        //FPS show
-        if (ShowFPS)
-        {
-            FPSLabel.gameObject.SetActive(true);
-            timeleft = updateInterval;
-        }
-        else
-        {
-            FPSLabel.gameObject.SetActive(false);
-        }
     }
 
     private void Update()
@@ -64,30 +45,8 @@ public class GameScreenView : MonoBehaviour
         CurrentScoreVal.text = GameModel.Instance.Score.ToString();
         GameModel.Instance.MovementForce = MovementSlider.value;
         ScoreSlider.value = GameModel.Instance.Score;
-        FPSFunc();
         TouchMovement();
         CheckScore();
-    }
-
-    public void FPSFunc()
-    {
-        if (ShowFPS)
-        {
-            timeleft -= Time.deltaTime;
-            accum += Time.timeScale / Time.deltaTime;
-            ++frames;
-            
-            if (timeleft <= 0.0)
-            {
-                float fps = accum / frames;
-                
-                FPSLabel.text = fps.ToString("f2");
-                
-                timeleft = updateInterval;
-                accum = 0.0f;
-                frames = 0;
-            }
-        }
     }
 
     public void TouchMovement()
