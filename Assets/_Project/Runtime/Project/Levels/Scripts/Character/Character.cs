@@ -121,6 +121,7 @@ public class Character : MonoBehaviour
         if(other.CompareTag("Diamond"))
         {
             GameModel.Instance.DiamondVal += 1;
+            Destroy(other.gameObject);
         }
     }
 
@@ -222,7 +223,7 @@ public class Character : MonoBehaviour
         switch (CurrentVehicle)
         {
             case Vehicles.Human:
-                Speed = 2;
+                Speed = 3;
                 break;
             case Vehicles.Horse:
                 Speed = 3;
@@ -240,10 +241,10 @@ public class Character : MonoBehaviour
                 Speed = 7;
                 break;
             case Vehicles.Tank:
-                Speed = 8;
+                Speed = 7;
                 break;
             case Vehicles.Plane:
-                Speed = 9;
+                Speed = 7;
                 break;
             case Vehicles.Peugeout308:
                 Speed = 10;
