@@ -59,9 +59,9 @@ Material:
     - _Centre_Roughness: 0
     - _Centre_Width: 0.1
     - _Edge_Gap: 0.12
-    - _Edge_Noise_Amount: 131.1
+    - _Edge_Noise_Amount: 224.91
     - _Edge_Normal_Height: 2.1
-    - _Edge_Roughness: 0.414
+    - _Edge_Roughness: 0.769
     - _Edge_Width: 0.09
     - _Normal_Strength: 0
     - _QueueControl: 0
@@ -71,8 +71,8 @@ Material:
     - _Road_Roughness: 0
     m_Colors:
     - _Centre_Color: {r: 1, g: 1, b: 1, a: 0}
-    - _Edge_Color: {r: 1, g: 0.6744842, b: 0, a: 0}
-    - _Road_Color: {r: 0.0471698, g: 0.0471698, b: 0.0471698, a: 0}
+    - _Edge_Color: {r: 1, g: 0.8246151, b: 0.043396115, a: 0}
+    - _Road_Color: {r: 0.2754717, g: 0.2754717, b: 0.2754717, a: 0}
   m_BuildTextureStacks: []
 --- !u!114 &5351176024853079146
 MonoBehaviour:
