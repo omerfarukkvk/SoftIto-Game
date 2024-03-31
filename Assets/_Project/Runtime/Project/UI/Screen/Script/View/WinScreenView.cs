@@ -11,17 +11,16 @@ public class WinScreenView : MonoBehaviour
     {
         ScoreLabel.text += GameModel.Instance.Score.ToString();
     }
-    public async void OnClickNextButton()
+    public async void OnClickLevelButton()
     {
+        ScreenManager.Instance.ClearLayer(ScreenLayers.Layer2);
         ScreenManager.Instance.ClearLayer(ScreenLayers.Layer1);
-        await BundleModel.Instance.LoadScene("Level2", LoadSceneMode.Single);
+        await ScreenManager.Instance.OpenScreen(ScreenKeys.LevelScreen, ScreenLayers.Layer1);
     }
-    public async void OnClickSettingsButton()
-    {
-        await ScreenManager.Instance.OpenScreen(ScreenKeys.SettingsScreen, ScreenLayers.Layer1);
-    }
+  
     public async void OnClickExitButton()
     {
+        ScreenManager.Instance.ClearLayer(ScreenLayers.Layer2);
         await BundleModel.Instance.LoadScene("MenuScene", LoadSceneMode.Single);
     }
 }
