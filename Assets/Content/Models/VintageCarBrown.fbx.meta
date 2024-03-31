@@ -1,9 +1,64 @@
 fileFormatVersion: 2
-guid: 83158820b1e4e4ad998462785a8bdb82
+guid: 1929c2e15bf0a47ac9d14e1edb278487
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Black
+    second: {fileID: 2100000, guid: e71a4d887be4a4931882c83620e615c3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Eyes
+    second: {fileID: 2100000, guid: 7e068d9aecf7d4a4d9baf2ba7fcdc4f3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: GLASS
+    second: {fileID: 2100000, guid: 72c73b06c52c144d0b61cba235026b95, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Lastik
+    second: {fileID: 2100000, guid: 2eaac151ada9448909f486ed62bbde33, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: MIRROR
+    second: {fileID: 2100000, guid: 66848125dd79c49479c16238f004d5a8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Metallic
+    second: {fileID: 2100000, guid: 6dc11b21ae41449e4bf4bccf8dba5d48, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: RED
+    second: {fileID: 2100000, guid: d95dd0795c7ea48b19a2480dae717002, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Yellow
+    second: {fileID: 2100000, guid: 491e15a6c61804bf2aca1a123c4c3e13, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: brown
+    second: {fileID: 2100000, guid: ce3da17da9f8449af8e89d2bf6f1ff52, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: gray
+    second: {fileID: 2100000, guid: 059794216cc39417ab522eb495dd6d68, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: yellow Light
+    second: {fileID: 2100000, guid: 438b19dfedb924146871c8659dcc836d, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

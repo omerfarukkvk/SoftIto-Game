@@ -103,6 +103,9 @@ public class GameScreenView : MonoBehaviour
             case int n when(n >= 350 && n < 400):
                 SetSliderValues(350, 400,GameModel.Instance.Score);
                 break;
+            case int n when(n >= 400 && n < 450):
+                SetSliderValues(400, 450,GameModel.Instance.Score);
+                break;
         }
     }
 

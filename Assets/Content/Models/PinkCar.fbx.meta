@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: fb71bc733d6a84bc4b81e75f7958f2e4
+guid: d09d5ee0393324137ac66b93d3eb61c4
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
@@ -7,43 +7,48 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Black
-    second: {fileID: 2100000, guid: 7e449b92b35a54302b094ceb95bdbfe1, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
       name: GLASS
-    second: {fileID: 2100000, guid: b18ca0238087f4f319dd2864552d752a, type: 2}
+    second: {fileID: 2100000, guid: 990a17b5145a540578562ed7183d1661, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Lastik
-    second: {fileID: 2100000, guid: 96b23b46ab0444afa97b4ae1c53e7c63, type: 2}
+      name: beige color
+    second: {fileID: 2100000, guid: db7e8c8ba69fb44b6b8c2ed1a44ef544, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: MIRROR
-    second: {fileID: 2100000, guid: 6a56215bd01394e7f8f272bb0d456de8, type: 2}
+      name: black color.001
+    second: {fileID: 2100000, guid: d4073f2472d1f46a5b36cc3e260b5518, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Metallic
-    second: {fileID: 2100000, guid: 13d50570220c7422eb2ddd445ef58b9d, type: 2}
+      name: black glossy color
+    second: {fileID: 2100000, guid: 9e2549551b4934840b74f62375571941, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: RED
-    second: {fileID: 2100000, guid: 7de4c988d8b1342b28fcfcf85863fea5, type: 2}
+      name: brown color
+    second: {fileID: 2100000, guid: aa4512cef690544dbbc979e95172a2a9, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: gray
-    second: {fileID: 2100000, guid: f68f1329b96c94ab691cbd1e5257ba8e, type: 2}
+      name: f Gray color.001
+    second: {fileID: 2100000, guid: 120f49ba5078c4f25be973cdbe5cdf0e, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: yellow Light
-    second: {fileID: 2100000, guid: 7b959d3e36ea5405fb50362b337a4a8c, type: 2}
+      name: red headlight
+    second: {fileID: 2100000, guid: 16f6b7f56107449099bcd839806308e7, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: wihite headlight.001
+    second: {fileID: 2100000, guid: a84ab434635604b94935a4c42f45120f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: yellow headlight
+    second: {fileID: 2100000, guid: 19cb3d6ff847d49fb9b2bbee5d52d0c6, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

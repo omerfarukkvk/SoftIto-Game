@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: fb71bc733d6a84bc4b81e75f7958f2e4
+guid: c2b4d4ced959e490a9fdddb4bcfcd6b6
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
@@ -7,43 +7,8 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Black
-    second: {fileID: 2100000, guid: 7e449b92b35a54302b094ceb95bdbfe1, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: GLASS
-    second: {fileID: 2100000, guid: b18ca0238087f4f319dd2864552d752a, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Lastik
-    second: {fileID: 2100000, guid: 96b23b46ab0444afa97b4ae1c53e7c63, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: MIRROR
-    second: {fileID: 2100000, guid: 6a56215bd01394e7f8f272bb0d456de8, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Metallic
-    second: {fileID: 2100000, guid: 13d50570220c7422eb2ddd445ef58b9d, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: RED
-    second: {fileID: 2100000, guid: 7de4c988d8b1342b28fcfcf85863fea5, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: gray
-    second: {fileID: 2100000, guid: f68f1329b96c94ab691cbd1e5257ba8e, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: yellow Light
-    second: {fileID: 2100000, guid: 7b959d3e36ea5405fb50362b337a4a8c, type: 2}
+      name: Material
+    second: {fileID: 2100000, guid: 92d48c6d85684469b9460323afbf544e, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

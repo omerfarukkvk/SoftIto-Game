@@ -16,11 +16,12 @@ public class Character : MonoBehaviour
         public const int EmptyToHuman = 0;
         public const int HumanToHorse = 50;
         public const int HorseToBicycle = 100;
-        public const int BicycleToOldCar = 150;
-        public const int OldCarToChopper = 200;
-        public const int ChopperToTank = 250;
-        public const int TankToPlane = 300;
-        public const int PlaneToPeugeout = 350;
+        public const int BicycleToVintageCar = 150;
+        public const int VintageCarToChopper = 200;
+        public const int ChopperToSportCar = 250;
+        public const int SportCarToTank = 300;
+        public const int TankToPlane = 350;
+        public const int PlaneToPeugeout = 400;
     }
 
     public enum Vehicles
@@ -29,8 +30,9 @@ public class Character : MonoBehaviour
         Human,
         Horse,
         Bicycle,
-        OldCar,
+        VintageCar,
         Chopper,
+        SportCar,
         Tank,
         Plane,
         Peugeout308
@@ -131,7 +133,7 @@ public class Character : MonoBehaviour
     {
         switch (Score)
         {
-            //human
+            //Human
             case int n when (n >= VehiclesChangeScores.EmptyToHuman && n < VehiclesChangeScores.HumanToHorse):
                 if (!VehicleIsRenderable && CurrentVehicle != Vehicles.Human)
                 {
@@ -140,7 +142,7 @@ public class Character : MonoBehaviour
                 }
 
                 break;
-            //horse
+            //Horse
             case int n when (n >= VehiclesChangeScores.HumanToHorse && n < VehiclesChangeScores.HorseToBicycle):
                 if (!VehicleIsRenderable && CurrentVehicle != Vehicles.Horse)
                 {
@@ -149,8 +151,8 @@ public class Character : MonoBehaviour
                 }
 
                 break;
-            //bicycle
-            case int n when (n >= VehiclesChangeScores.HorseToBicycle && n < VehiclesChangeScores.BicycleToOldCar):
+            //Bicycle
+            case int n when (n >= VehiclesChangeScores.HorseToBicycle && n < VehiclesChangeScores.BicycleToVintageCar):
                 if (!VehicleIsRenderable && CurrentVehicle != Vehicles.Bicycle)
                 {
                     GetVehiclePrefab(VehicleKeys.Bicycle);
@@ -158,17 +160,17 @@ public class Character : MonoBehaviour
                 }
 
                 break;
-            //oldcar !!!!!!!!!!!!!!!!!!!!!!!!!!!!
-            case int n when (n >= VehiclesChangeScores.BicycleToOldCar && n < VehiclesChangeScores.OldCarToChopper):
-                if (!VehicleIsRenderable && CurrentVehicle != Vehicles.OldCar)
+            //VintageCar
+            case int n when (n >= VehiclesChangeScores.BicycleToVintageCar && n < VehiclesChangeScores.VintageCarToChopper):
+                if (!VehicleIsRenderable && CurrentVehicle != Vehicles.VintageCar)
                 {
-                    GetVehiclePrefab(VehicleKeys.OldCar);
-                    CurrentVehicle = Vehicles.OldCar;
+                    GetVehiclePrefab(VehicleKeys.VintageCar);
+                    CurrentVehicle = Vehicles.VintageCar;
                 }
 
                 break;
-            //chopper
-            case int n when (n >= VehiclesChangeScores.OldCarToChopper && n < VehiclesChangeScores.ChopperToTank):
+            //Chopper
+            case int n when (n >= VehiclesChangeScores.VintageCarToChopper && n < VehiclesChangeScores.ChopperToSportCar):
                 if (!VehicleIsRenderable && CurrentVehicle != Vehicles.Chopper)
                 {
                     GetVehiclePrefab(VehicleKeys.Chopper);
@@ -176,8 +178,17 @@ public class Character : MonoBehaviour
                 }
 
                 break;
-            //tank
-            case int n when (n >= VehiclesChangeScores.ChopperToTank && n < VehiclesChangeScores.TankToPlane):
+            //SportCar
+            case int n when (n >= VehiclesChangeScores.ChopperToSportCar && n < VehiclesChangeScores.SportCarToTank):
+                if (!VehicleIsRenderable && CurrentVehicle != Vehicles.SportCar)
+                {
+                    GetVehiclePrefab(VehicleKeys.SportCar);
+                    CurrentVehicle = Vehicles.SportCar;
+                }
+
+                break;
+            //Tank
+            case int n when (n >= VehiclesChangeScores.SportCarToTank && n < VehiclesChangeScores.TankToPlane):
                 if (!VehicleIsRenderable && CurrentVehicle != Vehicles.Tank)
                 {
                     GetVehiclePrefab(VehicleKeys.Tank);
@@ -185,7 +196,7 @@ public class Character : MonoBehaviour
                 }
 
                 break;
-            //plane
+            //Plane
             case int n when (n >= VehiclesChangeScores.TankToPlane && n < VehiclesChangeScores.PlaneToPeugeout):
                 if (!VehicleIsRenderable && CurrentVehicle != Vehicles.Plane)
                 {
@@ -194,7 +205,7 @@ public class Character : MonoBehaviour
                 }
 
                 break;
-            //peugeout
+            //Peugeout
             case VehiclesChangeScores.PlaneToPeugeout:
                 if (!VehicleIsRenderable && CurrentVehicle != Vehicles.Peugeout308)
                 {
@@ -211,13 +222,28 @@ public class Character : MonoBehaviour
         switch (CurrentVehicle)
         {
             case Vehicles.Human:
-                Speed = 5;
+                Speed = 2;
                 break;
             case Vehicles.Horse:
-                Speed = 6;
+                Speed = 3;
                 break;
             case Vehicles.Bicycle:
+                Speed = 4;
+                break;
+            case Vehicles.VintageCar:
+                Speed = 5;
+                break;
+            case Vehicles.Chopper:
+                Speed = 6;
+                break;
+            case Vehicles.SportCar:
                 Speed = 7;
+                break;
+            case Vehicles.Tank:
+                Speed = 8;
+                break;
+            case Vehicles.Plane:
+                Speed = 9;
                 break;
             case Vehicles.Peugeout308:
                 Speed = 10;
