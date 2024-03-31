@@ -116,6 +116,10 @@ public class Character : MonoBehaviour
             Time.timeScale = 0f;
             await ScreenManager.Instance.OpenScreen("WinnerScreen", ScreenLayers.Layer1);
         }
+        if(other.CompareTag("Diamond"))
+        {
+            GameModel.Instance.DiamondVal += 1;
+        }
     }
 
     private void OnTriggerExit(Collider other)
