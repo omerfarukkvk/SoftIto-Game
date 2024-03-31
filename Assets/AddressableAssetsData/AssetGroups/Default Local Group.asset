@@ -87,8 +87,8 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 6e960c9c218134d58824613f9d479b1a
-    m_Address: Tank
+  - m_GUID: 37f754bcca2934124bbc9c13225aef26
+    m_Address: Plane
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -129,6 +129,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: fecc9789a6f29b244a02e544339b83f1
     m_Address: Level6
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ab01d051774744aa58568442fb18050b
+    m_Address: SportCar
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

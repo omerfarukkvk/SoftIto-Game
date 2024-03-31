@@ -165,7 +165,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3597396997187578178}
-  - {fileID: 4137671723622680588}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -186,6 +185,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ScoreLabel: {fileID: 1445986360168163336}
+  GameOverScreen: {fileID: 6055914611958291815}
 --- !u!1 &952258913410919907
 GameObject:
   m_ObjectHideFlags: 0
@@ -593,6 +593,7 @@ GameObject:
   - component: {fileID: 3597396997187578178}
   - component: {fileID: 4746729627146378797}
   - component: {fileID: 248966705184153331}
+  - component: {fileID: 6055914611958291815}
   m_Layer: 5
   m_Name: Background
   m_TagString: Untagged
@@ -611,7 +612,8 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 4137671723622680588}
   m_Father: {fileID: 4340034235784257987}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -657,6 +659,18 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!225 &6055914611958291815
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6460873110084897374}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &6700315427287465631
 GameObject:
   m_ObjectHideFlags: 0
@@ -827,7 +841,7 @@ RectTransform:
   - {fileID: 4847482602841810368}
   - {fileID: 8249032500850525791}
   - {fileID: 2547134802231014118}
-  m_Father: {fileID: 4340034235784257987}
+  m_Father: {fileID: 3597396997187578178}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}

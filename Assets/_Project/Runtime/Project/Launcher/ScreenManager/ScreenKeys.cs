@@ -12,5 +12,7 @@ public class ScreenKeys
     public const string GameOverScreen = "GameOverScreen";
     public const string WinScreen = "WinScreen";
     public const string NotificationScreen = "NotificationScreen";
+    public const string Level1 = "Level1";
+    public const string StoreScreen = "StoreScreen";
 
 }

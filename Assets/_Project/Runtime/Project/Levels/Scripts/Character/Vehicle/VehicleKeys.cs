@@ -10,7 +10,6 @@ public static class VehicleKeys
     public const string VintageCar = "VintageCar";
     public const string Chopper = "Chopper";
     public const string SportCar = "SportCar";
-    public const string Tank = "Tank";
     public const string Plane = "Plane";
     public const string Peugeout308 = "Peugeout308";
 }

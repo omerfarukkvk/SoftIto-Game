@@ -16,5 +16,10 @@ namespace _Project.Runtime.Project.UI.Screen.Script.View
         {
             await ScreenManager.Instance.OpenScreen(ScreenKeys.LevelScreen, ScreenLayers.Layer1);
         }
+        public async void OnClickStoreScreen()
+        {
+            await ScreenManager.Instance.OpenScreen(ScreenKeys.StoreScreen, ScreenLayers.Layer1);
+        }
+        
     }
 }
