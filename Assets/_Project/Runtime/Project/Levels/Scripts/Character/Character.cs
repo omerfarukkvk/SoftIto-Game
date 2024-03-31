@@ -14,13 +14,13 @@ public class Character : MonoBehaviour
     public class VehiclesChangeScores
     {
         public const int EmptyToHuman = 0;
-        public const int HumanToHorse = 50;
-        public const int HorseToBicycle = 100;
-        public const int BicycleToVintageCar = 150;
-        public const int VintageCarToChopper = 200;
-        public const int ChopperToSportCar = 250;
-        public const int SportCarToPlane = 300;
-        public const int PlaneToPeugeout = 350;
+        public const int HumanToHorse = 100;
+        public const int HorseToBicycle = 200;
+        public const int BicycleToVintageCar = 300;
+        public const int VintageCarToChopper = 400;
+        public const int ChopperToSportCar = 500;
+        public const int SportCarToPlane = 600;
+        public const int PlaneToPeugeout = 700;
     }
 
     public enum Vehicles
@@ -220,22 +220,22 @@ public class Character : MonoBehaviour
                 Speed = 3;
                 break;
             case Vehicles.Horse:
-                Speed = 3;
-                break;
-            case Vehicles.Bicycle:
                 Speed = 4;
                 break;
-            case Vehicles.VintageCar:
+            case Vehicles.Bicycle:
                 Speed = 5;
                 break;
-            case Vehicles.Chopper:
+            case Vehicles.VintageCar:
                 Speed = 6;
                 break;
-            case Vehicles.SportCar:
+            case Vehicles.Chopper:
                 Speed = 7;
                 break;
+            case Vehicles.SportCar:
+                Speed = 8;
+                break;
             case Vehicles.Plane:
-                Speed = 7;
+                Speed = 9;
                 break;
             case Vehicles.Peugeout308:
                 Speed = 10;

@@ -79,32 +79,26 @@ public class GameScreenView : MonoBehaviour
     {
         switch(GameModel.Instance.Score)
         {
-            case int n when(n >= 0 && n < 50):
-                SetSliderValues(0, 50, GameModel.Instance.Score);
+            case int n when(n >= 0 && n < 100):
+                SetSliderValues(0, 100, GameModel.Instance.Score);
                 break;
-            case int n when(n >= 50 && n < 100):
-                SetSliderValues(50, 100, GameModel.Instance.Score);
+            case int n when(n >= 100 && n < 200):
+                SetSliderValues(100, 200, GameModel.Instance.Score);
                 break;
-            case int n when(n >= 100 && n < 150):
-                SetSliderValues(100, 150,GameModel.Instance.Score);
+            case int n when(n >= 200 && n < 300):
+                SetSliderValues(200, 300,GameModel.Instance.Score);
                 break;
-            case int n when(n >= 150 && n < 200):
-                SetSliderValues(150, 200,GameModel.Instance.Score);
+            case int n when(n >= 300 && n < 400):
+                SetSliderValues(300, 400,GameModel.Instance.Score);
                 break;
-            case int n when(n >= 200 && n < 250):
-                SetSliderValues(200, 250,GameModel.Instance.Score);
+            case int n when(n >= 400 && n < 500):
+                SetSliderValues(400, 500,GameModel.Instance.Score);
                 break;
-            case int n when(n >= 250 && n < 300):
-                SetSliderValues(250, 300,GameModel.Instance.Score);
+            case int n when(n >= 500 && n < 600):
+                SetSliderValues(500, 600,GameModel.Instance.Score);
                 break;
-            case int n when(n >= 300 && n < 350):
-                SetSliderValues(300, 350,GameModel.Instance.Score);
-                break;
-            case int n when(n >= 350 && n < 400):
-                SetSliderValues(350, 400,GameModel.Instance.Score);
-                break;
-            case int n when(n >= 400 && n < 450):
-                SetSliderValues(400, 450,GameModel.Instance.Score);
+            case int n when(n >= 600 && n < 700):
+                SetSliderValues(600, 700,GameModel.Instance.Score);
                 break;
         }
     }

@@ -21,6 +21,7 @@ public class GameOverScreenView : MonoBehaviour
     }
     public async void OnClickSettingsButton()
     {
+        ScreenManager.Instance.ClearLayer(ScreenLayers.Layer2);
         await ScreenManager.Instance.OpenScreen(ScreenKeys.SettingsScreen, ScreenLayers.Layer2);
     }
     public async void OnClickExitButton()
