@@ -17,10 +17,9 @@ public class Character : MonoBehaviour
         public const int HumanToHorse = 100;
         public const int HorseToBicycle = 200;
         public const int BicycleToVintageCar = 300;
-        public const int VintageCarToChopper = 400;
-        public const int ChopperToSportCar = 500;
-        public const int SportCarToPlane = 600;
-        public const int PlaneToPeugeout = 700;
+        public const int VintageCarToSportCar = 400;
+        public const int SportCarToPlane = 500;
+        public const int PlaneToPeugeout = 600;
     }
 
     public enum Vehicles
@@ -165,7 +164,7 @@ public class Character : MonoBehaviour
 
                 break;
             //VintageCar
-            case int n when (n >= VehiclesChangeScores.BicycleToVintageCar && n < VehiclesChangeScores.VintageCarToChopper):
+            case int n when (n >= VehiclesChangeScores.BicycleToVintageCar && n < VehiclesChangeScores.VintageCarToSportCar):
                 if (!VehicleIsRenderable && CurrentVehicle != Vehicles.VintageCar)
                 {
                     GetVehiclePrefab(VehicleKeys.VintageCar);
@@ -173,17 +172,8 @@ public class Character : MonoBehaviour
                 }
 
                 break;
-            //Chopper
-            case int n when (n >= VehiclesChangeScores.VintageCarToChopper && n < VehiclesChangeScores.ChopperToSportCar):
-                if (!VehicleIsRenderable && CurrentVehicle != Vehicles.Chopper)
-                {
-                    GetVehiclePrefab(VehicleKeys.Chopper);
-                    CurrentVehicle = Vehicles.Chopper;
-                }
-
-                break;
             //SportCar
-            case int n when (n >= VehiclesChangeScores.ChopperToSportCar && n < VehiclesChangeScores.SportCarToPlane):
+            case int n when (n >= VehiclesChangeScores.VintageCarToSportCar && n < VehiclesChangeScores.SportCarToPlane):
                 if (!VehicleIsRenderable && CurrentVehicle != Vehicles.SportCar)
                 {
                     GetVehiclePrefab(VehicleKeys.SportCar);
@@ -228,14 +218,11 @@ public class Character : MonoBehaviour
             case Vehicles.VintageCar:
                 Speed = 6;
                 break;
-            case Vehicles.Chopper:
+            case Vehicles.SportCar:
                 Speed = 7;
                 break;
-            case Vehicles.SportCar:
-                Speed = 8;
-                break;
             case Vehicles.Plane:
-                Speed = 9;
+                Speed = 8;
                 break;
             case Vehicles.Peugeout308:
                 Speed = 10;
