@@ -78,6 +78,31 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: -8536835959567995501, guid: 616ce8710168d43cc88ed2637752b1db,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.56
+      objectReference: {fileID: 0}
+    - target: {fileID: -8536835959567995501, guid: 616ce8710168d43cc88ed2637752b1db,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.6025894
+      objectReference: {fileID: 0}
+    - target: {fileID: -8536835959567995501, guid: 616ce8710168d43cc88ed2637752b1db,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.6025894
+      objectReference: {fileID: 0}
+    - target: {fileID: -8536835959567995501, guid: 616ce8710168d43cc88ed2637752b1db,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.02285
+      objectReference: {fileID: 0}
+    - target: {fileID: -8536835959567995501, guid: 616ce8710168d43cc88ed2637752b1db,
+        type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: -8510992304520395000, guid: 616ce8710168d43cc88ed2637752b1db,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -126,7 +151,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 616ce8710168d43cc88ed2637752b1db,
         type: 3}
       propertyPath: m_Name
-      value: Peugeot308
+      value: Peugeout308
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 616ce8710168d43cc88ed2637752b1db,
         type: 3}
