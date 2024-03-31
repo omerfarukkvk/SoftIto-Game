@@ -114,7 +114,7 @@ public class Character : MonoBehaviour
         if(other.CompareTag("Finish"))
         {
             Time.timeScale = 0f;
-            await ScreenManager.Instance.OpenScreen("WinnerScreen", ScreenLayers.Layer1);
+            await ScreenManager.Instance.OpenScreen(ScreenKeys.WinScreen, ScreenLayers.Layer2);
         }
         if(other.CompareTag("Diamond"))
         {
