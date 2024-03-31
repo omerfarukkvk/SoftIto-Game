@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -11,11 +13,11 @@ public class GameOverScreenView : MonoBehaviour
     {
         ScoreLabel.text += GameModel.Instance.Score.ToString();
     }
+
     public async void OnClickRestartButton()
     {
-        await BundleModel.Instance.UnLoadScene("Level1");
         ScreenManager.Instance.ClearLayer(ScreenLayers.Layer2);
-        await BundleModel.Instance.LoadScene("Level1", LoadSceneMode.Single);
+        await ScreenManager.Instance.OpenScreen(ScreenKeys.LevelScreen, ScreenLayers.Layer1);
     }
     public async void OnClickSettingsButton()
     {
