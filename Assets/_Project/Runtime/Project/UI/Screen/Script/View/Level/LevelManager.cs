@@ -27,6 +27,6 @@ public class OpenLevelScene : MonoBehaviour
     }
     public async void OnClickLevelSix()
     {
-            await BundleModel.Instance.LoadScene("Level6", LoadSceneMode.Single);
+        await BundleModel.Instance.LoadScene("Level6", LoadSceneMode.Single);
     }
 }

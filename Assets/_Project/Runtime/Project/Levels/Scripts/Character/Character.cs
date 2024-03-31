@@ -170,7 +170,6 @@ public class Character : MonoBehaviour
                     GetVehiclePrefab(VehicleKeys.VintageCar);
                     CurrentVehicle = Vehicles.VintageCar;
                 }
-
                 break;
             //SportCar
             case int n when (n >= VehiclesChangeScores.VintageCarToSportCar && n < VehiclesChangeScores.SportCarToPlane):
