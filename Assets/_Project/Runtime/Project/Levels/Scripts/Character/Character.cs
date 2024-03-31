@@ -19,9 +19,8 @@ public class Character : MonoBehaviour
         public const int BicycleToVintageCar = 150;
         public const int VintageCarToChopper = 200;
         public const int ChopperToSportCar = 250;
-        public const int SportCarToTank = 300;
-        public const int TankToPlane = 350;
-        public const int PlaneToPeugeout = 400;
+        public const int SportCarToPlane = 300;
+        public const int PlaneToPeugeout = 350;
     }
 
     public enum Vehicles
@@ -33,7 +32,6 @@ public class Character : MonoBehaviour
         VintageCar,
         Chopper,
         SportCar,
-        Tank,
         Plane,
         Peugeout308
     }
@@ -185,7 +183,7 @@ public class Character : MonoBehaviour
 
                 break;
             //SportCar
-            case int n when (n >= VehiclesChangeScores.ChopperToSportCar && n < VehiclesChangeScores.SportCarToTank):
+            case int n when (n >= VehiclesChangeScores.ChopperToSportCar && n < VehiclesChangeScores.SportCarToPlane):
                 if (!VehicleIsRenderable && CurrentVehicle != Vehicles.SportCar)
                 {
                     GetVehiclePrefab(VehicleKeys.SportCar);
@@ -193,17 +191,8 @@ public class Character : MonoBehaviour
                 }
 
                 break;
-            //Tank
-            case int n when (n >= VehiclesChangeScores.SportCarToTank && n < VehiclesChangeScores.TankToPlane):
-                if (!VehicleIsRenderable && CurrentVehicle != Vehicles.Tank)
-                {
-                    GetVehiclePrefab(VehicleKeys.Tank);
-                    CurrentVehicle = Vehicles.Tank;
-                }
-
-                break;
             //Plane
-            case int n when (n >= VehiclesChangeScores.TankToPlane && n < VehiclesChangeScores.PlaneToPeugeout):
+            case int n when (n >= VehiclesChangeScores.SportCarToPlane && n < VehiclesChangeScores.PlaneToPeugeout):
                 if (!VehicleIsRenderable && CurrentVehicle != Vehicles.Plane)
                 {
                     GetVehiclePrefab(VehicleKeys.Plane);
@@ -243,9 +232,6 @@ public class Character : MonoBehaviour
                 Speed = 6;
                 break;
             case Vehicles.SportCar:
-                Speed = 7;
-                break;
-            case Vehicles.Tank:
                 Speed = 7;
                 break;
             case Vehicles.Plane:
