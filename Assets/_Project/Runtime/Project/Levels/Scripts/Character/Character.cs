@@ -29,7 +29,6 @@ public class Character : MonoBehaviour
         Horse,
         Bicycle,
         VintageCar,
-        Chopper,
         SportCar,
         Plane,
         Peugeout308
