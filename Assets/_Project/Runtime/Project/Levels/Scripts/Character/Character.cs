@@ -123,6 +123,11 @@ public class Character : MonoBehaviour
             GameModel.Instance.DiamondVal += 1;
             Destroy(other.gameObject);
         }
+        if(other.CompareTag("Bomb"))
+        {
+            GameModel.Instance.Score -= 10;
+            Destroy(other.gameObject);
+        }
     }
 
     private void OnTriggerExit(Collider other)
