@@ -105,6 +105,7 @@ public class Character : MonoBehaviour
 
         if (other.CompareTag("Wall"))
         {
+            Debug.Log("girdi");
             RuntimeManager.PlayOneShot(CrashSound);
             Time.timeScale = 0f;
             await ScreenManager.Instance.OpenScreen(ScreenKeys.GameOverScreen, ScreenLayers.Layer2);
